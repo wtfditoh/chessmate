@@ -1,0 +1,1 @@
+{"name":"ChessMate Pro","short_name":"ChessMate","description":"Treine, analise e evolua no xadrez.","start_url":"./","scope":"./","display":"standalone","background_color":"#09110e","theme_color":"#09110e","orientation":"any","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
