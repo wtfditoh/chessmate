@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b1110"><meta name="description" content="ChessMate — treine xadrez, explore posições e entenda suas jogadas.">
+  <link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+  <title>ChessMate</title>
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="ChessMate início"><span class="brand-mark">♞</span><span>CHESS<span class="brand-accent">MATE</span><small>THINK. PLAY. IMPROVE.</small></span></a>
+    <div class="top-actions"><span class="online-pill"><i></i> TREINO LOCAL</span><button class="icon-btn" id="themeBtn" title="Alternar tema" aria-label="Alternar tema">◐</button></div>
+  </header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">SEU ESPAÇO DE TREINO</p><h1>Jogue melhor. <span>Pense melhor.</span></h1><p class="subhead">Monte posições, teste ideias e entenda o que acontece no tabuleiro.</p></div><div class="level-card"><span class="level-icon">✦</span><div><small>NÍVEL ADAPTATIVO</small><strong id="levelLabel">Em calibração</strong></div></div></section>
+    <section class="workspace">
+      <div class="board-column">
+        <div class="board-topline"><div class="player"><span class="avatar black">♟</span><div><b>PRETAS</b><small id="blackCaptured">Prontas para jogar</small></div></div><span class="turn-indicator" id="turnLabel">VEZ DAS BRANCAS</span></div>
+        <div class="board-wrap"><div class="coordinates files" id="filesTop"></div><div class="board-frame"><div class="coordinates ranks" id="ranksLeft"></div><div id="board" class="board" role="grid" aria-label="Tabuleiro de xadrez"></div><svg id="arrows" class="arrows" viewBox="0 0 800 800" aria-hidden="true"></svg></div></div>
+        <div class="board-bottomline"><div class="player"><span class="avatar white">♙</span><div><b>BRANCAS</b><small id="whiteCaptured">Prontas para jogar</small></div></div><div class="board-controls"><button id="flipBtn" class="soft-btn">⇅ Virar</button><button id="undoBtn" class="soft-btn">↶ Desfazer</button><button id="resetBtn" class="soft-btn">＋ Nova</button></div></div>
+      </div>
+      <aside class="side-panel">
+        <div class="panel-tabs"><button class="tab active" data-tab="coach">Treinador</button><button class="tab" data-tab="moves">Jogadas</button><button class="tab" data-tab="tools">Ferramentas</button></div>
+        <div class="tab-content" id="coachTab">
+          <div class="mode-row"><div><small class="eyebrow">MODO ATUAL</small><h2 id="modeTitle">Modo Humano</h2></div><span class="mode-symbol">♟</span></div>
+          <div class="mode-switch"><button class="mode-btn active" data-mode="human">♙ Humano</button><button class="mode-btn" data-mode="mate">♚ Checkmate</button><button class="mode-btn" data-mode="study">▤ Estudo</button></div>
+          <div class="insight-card"><div class="insight-heading"><span class="spark">✦</span><b id="tipTitle">Vamos começar</b><span class="live-tag">DICA</span></div><p id="tipText">Faça uma jogada no tabuleiro. Vou destacar ideias táticas e explicar os temas da posição.</p><div class="tip-footer" id="tipFooter">ANÁLISE DIDÁTICA · SEM MOTOR DE JOGO</div></div>
+          <div class="section-heading"><h3>Visão da posição</h3><span class="muted-label">EM TEMPO REAL</span></div>
+          <div class="stat-grid"><div class="stat"><small>JOGADAS</small><strong id="moveCount">0</strong></div><div class="stat"><small>REI BRANCO</small><strong id="whiteKing">Seguro</strong></div><div class="stat"><small>REI PRETO</small><strong id="blackKing">Seguro</strong></div></div>
+          <button class="primary-btn" id="hintBtn">✦ Analisar minha posição</button>
+          <p class="disclaimer">As dicas são educativas e baseadas em regras e padrões táticos simples; não são uma avaliação completa de força.</p>
+        </div>
+        <div class="tab-content hidden" id="movesTab"><div class="section-heading"><h3>Histórico</h3><span class="muted-label" id="historyCount">0 LANCES</span></div><div class="move-list" id="moveList"><div class="empty-state">Suas jogadas aparecerão aqui.</div></div></div>
+        <div class="tab-content hidden" id="toolsTab"><div class="section-heading"><h3>Ferramentas</h3></div><label class="field-label" for="fenInput">Carregar posição (FEN)</label><textarea id="fenInput" rows="3" placeholder="Cole uma FEN para montar uma posição..."></textarea><button class="secondary-btn" id="loadFenBtn">Carregar FEN</button><button class="secondary-btn" id="copyFenBtn">Copiar FEN atual</button><div class="divider"></div><label class="field-label" for="levelSelect">Nível de explicação</label><select id="levelSelect"><option value="auto">Adaptativo</option><option value="beginner">Iniciante</option><option value="intermediate">Intermediário</option><option value="advanced">Avançado</option></select><div class="divider"></div><button class="secondary-btn danger" id="clearBtn">Limpar partida</button></div>
+      </aside>
+    </section>
+    <section class="bottom-grid"><article class="feature-card"><span class="feature-icon">⌁</span><div><h3>Aprenda com a posição</h3><p>Entenda xeques, capturas, desenvolvimento e ameaças sem depender de uma lista cega de lances.</p></div></article><article class="feature-card"><span class="feature-icon">♜</span><div><h3>Treine combinações</h3><p>Use o modo Checkmate para praticar padrões de mate e reconhecer oportunidades táticas.</p></div></article><article class="feature-card"><span class="feature-icon">◷</span><div><h3>No seu ritmo</h3><p>Movimente os dois lados, volte lances e experimente diferentes planos.</p></div></article></section>
+  </main>
+  <footer><span>CHESSMATE © 2026</span><span>FEITO PARA TREINAR E EVOLUIR ♞</span></footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script type="module" src="app.js"></script>
+</body></html>
